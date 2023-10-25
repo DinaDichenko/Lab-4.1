@@ -3,26 +3,27 @@
 
 
 class Products:
-    def __init__(self, a=0, b=0):
-        a = float(a)
-        b = int(b)
+    """
+    Класс, хранящий введенные значения в полях first и second
+    """
 
-        if a < 0 or b < 0:
+    def __init__(self, first=0, second=0):
+        """
+        Конструктор класса, принимает два параметра, валидирует их и сохраняет в поля
+        """
+        if not isinstance(second, int):
+            raise TypeError("Значение second должно быть целым числом")
+
+        if first < 0 or second < 0:
             raise ValueError()
 
-        self.__first = a
-        self.__second = b
+        self.__first = first
+        self.__second = second
 
-    @property
-    def first(self):
-        return self.__first
-
-    @property
-    def second(self):
-        return self.__second
-
-    # Прочитать значения first и second. Значения вводятся через пробел
     def read(self, prompt=None):
+        """
+        Статичный метод для создания экземпляра класса
+        """
         line = input() if prompt is None else input(prompt)
         parts = list(map(float, line.split(" ", maxsplit=1)))
 
@@ -32,12 +33,16 @@ class Products:
         if parts[1] == 0:
             raise ValueError()
 
-    # Вывод на экран
     def display(self):
+        """
+        Метод вывода на консоль результатов
+        """
         print(f"Стоимость товара: {self.cost()}")
 
-    # Вычисление стоимости товара
     def cost(self):
+        """
+        Метод возвращает стоимость товаров
+        """
         return self.__first * self.__second
 
 
