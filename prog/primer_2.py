@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-class Rational:
 
+class Rational:
     def __init__(self, a=0, b=1):
         a = int(a)
         b = int(b)
@@ -29,8 +29,9 @@ class Rational:
                 return gcd(a, b % a)
 
         sign = 1
-        if (self.__numerator > 0 and self.__denominator < 0) or \
-                (self.__numerator < 0 and self.__denominator > 0):
+        if (self.__numerator > 0 and self.__denominator < 0) or (
+            self.__numerator < 0 and self.__denominator > 0
+        ):
             sign = -1
 
         a, b = abs(self.__numerator), abs(self.__denominator)
@@ -83,8 +84,7 @@ class Rational:
     # Сложение обыкновенных дробей.
     def __iadd__(self, rhs):  # +=
         if isinstance(rhs, Rational):
-            a = self.numerator * rhs.denominator + \
-                self.denominator * rhs.numerator
+            a = self.numerator * rhs.denominator + self.denominator * rhs.numerator
             b = self.denominator * rhs.denominator
 
             self.__numerator, self.__denominator = a, b
@@ -99,8 +99,7 @@ class Rational:
     # Вычитание обыкновенных дробей.
     def __isub__(self, rhs):  # -=
         if isinstance(rhs, Rational):
-            a = self.numerator * rhs.denominator - \
-                self.denominator * rhs.numerator
+            a = self.numerator * rhs.denominator - self.denominator * rhs.numerator
             b = self.denominator * rhs.denominator
 
             self.__numerator, self.__denominator = a, b
@@ -147,8 +146,9 @@ class Rational:
     # Отношение обыкновенных дробей.
     def __eq__(self, rhs):  # ==
         if isinstance(rhs, Rational):
-            return (self.numerator == rhs.numerator) and \
-                (self.denominator == rhs.denominator)
+            return (self.numerator == rhs.numerator) and (
+                self.denominator == rhs.denominator
+            )
         else:
             return False
 
@@ -183,7 +183,7 @@ class Rational:
             return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     r1 = Rational(3, 4)
     print(f"r1 = {r1}")
 
