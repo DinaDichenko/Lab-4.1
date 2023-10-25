@@ -42,7 +42,7 @@ class Products:
 
 
 # Возвращение структуры требуемого типа
-def make_exp(first, second):
+def make_products(first, second):
     return Products(first, second)
 
 

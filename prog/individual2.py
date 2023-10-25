@@ -33,7 +33,7 @@ class Angle:
         print(f"В радианах: {self.radian()}")
         print(f"В диапазоне 0-360: {self.diapazon()}")
         print(f"Синус: {self.sinus()}")
-        print(f"Изменение на определенный угол: {self.izmen(prod3)}")
+        print(f"Изменение на определенный угол: {self.change(prod3)}")
         print(f"Сравнение с другим углом: {self.comparison(prod2)}")
 
     # Перевод в радианы
@@ -54,7 +54,7 @@ class Angle:
         return math.sin(self.radian())
 
     # Увеличение/уменьшение угла на заданную величину
-    def izmen(self, other_angle):
+    def change(self, other_angle):
         grad1 = self.first + self.second / 60
         grad2 = other_angle.first + other_angle.second / 60
         return grad1 + grad2
